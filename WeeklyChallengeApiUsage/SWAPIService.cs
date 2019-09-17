@@ -29,7 +29,7 @@ namespace WeeklyChallengeApiUsage
                     return SwapiServiceResponse.Ok(_cache[id]);
 
                 var request = CreateRequest(id);
-                var response = await _client.SendAsync(request);
+                var response = await _client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
                 if (!response.IsSuccessStatusCode)
                     throw new HttpRequestException($"{response.StatusCode} - {response.ReasonPhrase}");
 
