@@ -11,7 +11,7 @@ namespace WeeklyChallengeApiUsage
     public class SwapiService
     {
         private readonly HttpClient _client;
-        private Dictionary<int, People> _cache;
+        private readonly Dictionary<int, People> _cache;
 
         public SwapiService(HttpClient client)
         {
@@ -48,7 +48,7 @@ namespace WeeklyChallengeApiUsage
 
         private HttpRequestMessage CreateRequest(int id)
         {
-            return new HttpRequestMessage(HttpMethod.Get, $"https://www.swapi.co/api/people/{id}/");
+            return new HttpRequestMessage(HttpMethod.Get, $"{id}/");
         }
     }
 

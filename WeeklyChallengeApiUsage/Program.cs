@@ -30,7 +30,7 @@ namespace WeeklyChallengeApiUsage
                 });
 
             // Register a HTTP Client
-            services.AddHttpClient<SwapiService>();
+            services.AddHttpClient<SwapiService>(x => x.BaseAddress = new Uri("https://www.swapi.co/api/people/"));
 
             var serviceProvider = services.BuildServiceProvider();
 
